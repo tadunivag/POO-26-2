@@ -10,6 +10,11 @@ public class SistemaBancario {
         mdc.criaConta("Conta Corrente", "Duke", 5467, "4567-3");
         mdc.deposita(1000.15);
 
+        //Teste do exercício 6 - Cap 9
+        mdc.saca(100);
+        Conta conta = mdc.getConta();
+        conta.sacar(100);
+
         mdc.criaConta("Conta Poupança", "Patolino", 8514, "5498-X");
         mdc.deposita(2000);
         mdc.saca(500.26);

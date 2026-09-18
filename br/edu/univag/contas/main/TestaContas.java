@@ -1,10 +1,9 @@
 package br.edu.univag.contas.main;
 
-import br.edu.univag.contas.ManipuladorDeContas;
-import br.edu.univag.contas.modelo.Conta;
-
 /**
- * Classe de teste.
+ * Classe para executar os testes da aplicação.
+ * 
+ * @author Shimo
  */
 public class TestaContas {
     public static void main(String args[]) {
