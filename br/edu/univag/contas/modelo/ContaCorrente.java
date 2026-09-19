@@ -1,6 +1,6 @@
 package br.edu.univag.contas.modelo;
 
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements Tributavel {
     @Override
     public String getTipo() {
         return "Conta Corrente";
@@ -14,5 +14,10 @@ public class ContaCorrente extends Conta {
     @Override
     public boolean sacar(double valor) {
         return super.sacar(valor + 0.10);
+    }
+
+    @Override
+    public double getValorImposto() {
+        return getSaldo() * 0.01; // 1% de imposto
     }
 }

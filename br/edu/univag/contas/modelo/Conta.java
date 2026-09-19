@@ -110,6 +110,7 @@ public abstract class Conta {
             "\nNúmero: " + numero +
             "\nAgência: " + agencia +
             "\nSaldo: " + saldo +
-            "\nData de abertura: " + dataAbertura;
+            "\nData de abertura: " + dataAbertura +
+            "\nTipo: " + getTipo();
     }
 }
