@@ -11,6 +11,14 @@ public class ManipuladorDeContas {
     private List<Conta> contas = new ArrayList<>();
 
     private Conta conta;
+    
+    public Conta getConta() {
+        return conta;
+    }
+
+    public void setConta(Conta conta) {
+        this.conta = conta;
+    }
 
     public void criaConta() {
         this.criaConta("Conta Corrente", "Batman", 56789, "1234");
@@ -40,8 +48,8 @@ public class ManipuladorDeContas {
     public void saca(double valor){
         this.conta.sacar(valor);
     }
-    
-    public Conta getConta() {
-        return conta;
+
+    public void transfere(Conta destino, double valor) {
+        this.conta.transferir(destino, valor);
     }
 }

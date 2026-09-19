@@ -12,12 +12,17 @@ public class SistemaBancario {
 
         //Teste do exercício 6 - Cap 9
         mdc.saca(100);
-        Conta conta = mdc.getConta();
-        conta.sacar(100);
+        Conta cc = mdc.getConta();
+        cc.sacar(100);
 
         mdc.criaConta("Conta Poupança", "Patolino", 8514, "5498-X");
         mdc.deposita(2000);
         mdc.saca(500.26);
+
+        // Exercício 8, cap 9
+        Conta cp = mdc.getConta();
+        mdc.setConta(cc);
+        mdc.transfere(cp, 799.95);
     };
     
     public static void mostraTela(boolean b) {

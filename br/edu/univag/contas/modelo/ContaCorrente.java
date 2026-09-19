@@ -12,7 +12,7 @@ public class ContaCorrente extends Conta {
      * @see br.edu.univag.contas.modelo.Conta#sacar(double)
      */
     @Override
-    public void sacar(double valor) {
-        super.sacar(valor + 0.10);
+    public boolean sacar(double valor) {
+        return super.sacar(valor + 0.10);
     }
 }

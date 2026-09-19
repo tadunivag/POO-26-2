@@ -79,13 +79,27 @@ public class Conta {
     /**
      * Saca o valor informado de uma conta.
      * @param valor O valor a ser sacado.
+     * @return Um valor <code>boolean</code> indicando
+     *         se executou a operação.
      */
-    public void sacar(double valor) {
+    public boolean sacar(double valor) {
+        if (saldo < valor) {
+            System.out.println("Saldo insuficiente.");
+            return false;
+        }
+
         saldo = saldo - valor;
+        return true;
     }
     
     public void depositar(double valor) {
         saldo += valor;
+    }
+
+    public void transferir(Conta destino, double valor) {
+        if (sacar(valor)) {
+            destino.depositar(valor);
+        }
     }
 
     public double getRendimento( ) {
