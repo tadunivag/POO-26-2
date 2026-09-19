@@ -2,6 +2,8 @@ package br.edu.univag.contas.main;
 
 import br.edu.univag.contas.ManipuladorDeContas;
 import  br.edu.univag.contas.modelo.Conta;
+import br.edu.univag.contas.modelo.ContaCorrente;
+import br.edu.univag.contas.modelo.ContaPoupanca;
 
 /**
  * Classe de teste.
@@ -9,7 +11,8 @@ import  br.edu.univag.contas.modelo.Conta;
 public class TestaConta {
     public static void main(String args[]) {
         // Exercícios do cap 4 e 5
-        Conta conta = new Conta("Duke");
+        Conta conta = new ContaCorrente();
+        conta.setTitular("Duke");
         conta.setNumero(4567);
         conta.setAgencia("7892-X");
         conta.setSaldo(1500.52);
@@ -24,11 +27,11 @@ public class TestaConta {
         conta.sacar(-19);
         System.out.println(conta.recuperarDadosParaImpressao());
         
-        Conta c1 = new Conta();     
+        Conta c1 = new ContaCorrente();     
         c1.setTitular("Danilo");
         c1.setSaldo(100);
     
-        Conta c2 = new Conta();     
+        Conta c2 = new ContaPoupanca();
         c2.setTitular("Danilo");
         c2.setSaldo(100);
     

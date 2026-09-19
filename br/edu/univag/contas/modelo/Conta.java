@@ -5,7 +5,7 @@ package br.edu.univag.contas.modelo;
  * 
  * @author Shimo
  */
-public class Conta {
+public abstract class Conta {
     private static int contador;
     
     private int identificador;
@@ -32,9 +32,7 @@ public class Conta {
         setTitular(titular);
     }
     
-    public String getTipo() {
-        return "Conta";
-    }
+    public abstract String getTipo();
     
     public int getIdentificador() {
         return identificador;
