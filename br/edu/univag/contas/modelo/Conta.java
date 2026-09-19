@@ -76,6 +76,10 @@ public class Conta {
         this.dataAbertura = dataAbertura;
     }
 
+    /**
+     * Saca o valor informado de uma conta.
+     * @param valor O valor a ser sacado.
+     */
     public void sacar(double valor) {
         saldo = saldo - valor;
     }

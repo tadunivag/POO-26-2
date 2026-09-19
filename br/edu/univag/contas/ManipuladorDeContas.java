@@ -38,12 +38,7 @@ public class ManipuladorDeContas {
     }
 
     public void saca(double valor){
-        if (this.conta.getTipo().equals("Conta Corrente")) {
-            this.conta.sacar(valor + 0.10);
-        }
-        else {
-            this.conta.sacar(valor);
-        }
+        this.conta.sacar(valor);
     }
     
     public Conta getConta() {
