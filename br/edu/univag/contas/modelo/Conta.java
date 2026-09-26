@@ -91,6 +91,9 @@ public abstract class Conta {
     }
     
     public void depositar(double valor) {
+        if (valor <= 0.0) {
+            throw new IllegalArgumentException();
+        }
         saldo += valor;
     }
 
