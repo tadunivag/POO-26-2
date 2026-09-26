@@ -2,7 +2,6 @@ package br.edu.univag.contas;
 
 import java.util.List;
 
-import br.edu.univag.contas.modelo.SeguroDeVida;
 import br.edu.univag.contas.modelo.Tributavel;
 
 public class ManipuladorDeTributaveis {

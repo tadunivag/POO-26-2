@@ -8,7 +8,7 @@ public class TesteErro {
         try {
             metodo1();
         } catch (NullPointerException e) {
-            System.out.println("Erro: " + e);
+            System.out.println("Erro: " + e.getMessage());
         }
         System.out.println("fim do main");
     }
