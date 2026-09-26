@@ -18,18 +18,18 @@ public class TesteErro {
   static void metodo2() {
       System.out.println("inicio do metodo2");
       ContaCorrente cc = new ContaCorrente();
-      try {
         for (int i = 0; i <= 15; i++) {   
-            cc.depositar(i + 1000);
-            System.out.println(cc.getSaldo());
-            if (i == 5) {
-                cc = null;
+            try {
+                cc.depositar(i + 1000);
+                System.out.println(cc.getSaldo());
+                if (i == 5) {
+                    cc = null;
+                }
+            }
+            catch (NullPointerException e) {
+                System.out.println("Erro: " + e);
             }
         }
-      }
-      catch (NullPointerException e) {
-        System.out.println("Erro: " + e);
-      }
       System.out.println("fim do metodo2");
   }
 }
