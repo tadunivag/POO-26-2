@@ -1,9 +1,13 @@
 package br.edu.univag.contas.main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.edu.univag.contas.ManipuladorDeContas;
 import br.edu.univag.contas.ManipuladorDeSeguroDeVida;
 import  br.edu.univag.contas.modelo.Conta;
 import br.edu.univag.contas.modelo.SeguroDeVida;
+import br.edu.univag.contas.modelo.Tributavel;
 
 public class SistemaBancario {
     private static ManipuladorDeContas mdc = new ManipuladorDeContas();
@@ -12,6 +16,7 @@ public class SistemaBancario {
     public static void mostraTela() {
         testaContas();
         testaSegurosDeVida();
+        listaTributaveis();
     }
 
     public static void testaContas() {
@@ -59,6 +64,25 @@ public class SistemaBancario {
         for (SeguroDeVida seguro : msv.getSeguros()) {
             System.out.printf("%6d %-20S %10.2f %s%n", seguro.getNumeroApolice(),
                 seguro.getTitular(), seguro.getValor(), seguro.getTipo());
+        }
+    }
+
+    private static void listaTributaveis() {
+        //Inicialização das variáveis
+        List<Tributavel> tributaveis = new ArrayList<>();
+        for (Conta conta : mdc.getContas()) {
+            if (conta instanceof Tributavel) {
+                tributaveis.add((Tributavel) conta);
+            }
+        }
+        tributaveis.addAll(msv.getSeguros());
+
+        System.out.println("\nListagem de Tributáveis");
+        System.out.println("=======================");
+        System.out.println("Titular                 Imposto Tipo");
+        for (Tributavel tributavel : tributaveis) {
+            System.out.printf("%-20S %10.2f %s%n", tributavel.getTitular(),
+                tributavel.getValorImposto(), tributavel.getTipo());
         }
     }
 }
