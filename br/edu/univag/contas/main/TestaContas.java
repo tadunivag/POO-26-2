@@ -7,6 +7,6 @@ package br.edu.univag.contas.main;
  */
 public class TestaContas {
     public static void main(String args[]) {
-        SistemaBancario.mostraTela();
+        SistemaBancario.mostraTela(true);
     }
 }

@@ -14,10 +14,12 @@ public class SistemaBancario {
     private static ManipuladorDeContas mdc = new ManipuladorDeContas();
     private static ManipuladorDeSeguroDeVida msv = new ManipuladorDeSeguroDeVida();
     
-    public static void mostraTela() {
+    public static void mostraTela(boolean exibeTributaveis) {
         testaContas();
         testaSegurosDeVida();
-        listaTributaveis();
+        if (exibeTributaveis) {
+            listaTributaveis();
+        }
     }
 
     public static void testaContas() {
