@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.edu.univag.contas.ManipuladorDeContas;
 import br.edu.univag.contas.ManipuladorDeSeguroDeVida;
+import br.edu.univag.contas.ManipuladorDeTributaveis;
 import  br.edu.univag.contas.modelo.Conta;
 import br.edu.univag.contas.modelo.SeguroDeVida;
 import br.edu.univag.contas.modelo.Tributavel;
@@ -84,5 +85,10 @@ public class SistemaBancario {
             System.out.printf("%-20S %10.2f %s%n", tributavel.getTitular(),
                 tributavel.getValorImposto(), tributavel.getTipo());
         }
+
+        //Exibe o total de impostos
+        ManipuladorDeTributaveis mdt = new ManipuladorDeTributaveis();
+        mdt.calculaImpostos(tributaveis);
+        System.out.printf("Total de impostos: R$ %.2f%n", mdt.getTotal());
     }
 }

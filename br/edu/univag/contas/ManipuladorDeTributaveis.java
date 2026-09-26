@@ -3,6 +3,7 @@ package br.edu.univag.contas;
 import java.util.List;
 
 import br.edu.univag.contas.modelo.SeguroDeVida;
+import br.edu.univag.contas.modelo.Tributavel;
 
 public class ManipuladorDeTributaveis {
     private double total;
@@ -11,10 +12,10 @@ public class ManipuladorDeTributaveis {
         return total;
     }
 
-    public void calculaImpostos(List<SeguroDeVida> seguros) {
+    public void calculaImpostos(List<Tributavel> tributaveis) {
         this.total = 0.0;
-        for (SeguroDeVida seguro : seguros) {
-            this.total += seguro.getValorImposto();
+        for (Tributavel tributavel : tributaveis) {
+            this.total += tributavel.getValorImposto();
         }
     }
 }
