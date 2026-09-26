@@ -1,12 +1,21 @@
 package br.edu.univag.contas.main;
 
 import br.edu.univag.contas.ManipuladorDeContas;
+import br.edu.univag.contas.ManipuladorDeSeguroDeVida;
 import  br.edu.univag.contas.modelo.Conta;
+import br.edu.univag.contas.modelo.SeguroDeVida;
 
 public class SistemaBancario {
     private static ManipuladorDeContas mdc = new ManipuladorDeContas();
+    private static ManipuladorDeSeguroDeVida msv = new ManipuladorDeSeguroDeVida();
     
-    static {
+    public static void mostraTela() {
+        testaContas();
+        testaSegurosDeVida();
+    }
+
+    public static void testaContas() {
+        // Inicializa as contas
         mdc.criaConta("Conta Corrente", "Duke", 5467, "4567-3");
         mdc.deposita(1000.15);
 
@@ -23,9 +32,10 @@ public class SistemaBancario {
         Conta cp = mdc.getConta();
         mdc.setConta(cc);
         mdc.transfere(cp, 799.95);
-    };
-    
-    public static void mostraTela(boolean b) {
+
+        // Listar contas cadastradas
+        System.out.println("\nListagem de Contas");
+        System.out.println("==================");
         System.out.printf("%-20s %6s %7s %10s %s%n", "Titular", "Número",
             "Agência", "Saldo", "Tipo");
         if (mdc.getContas().isEmpty()) {
@@ -35,6 +45,20 @@ public class SistemaBancario {
                 System.out.printf("%-20S %6d %7s %10.2f %s%n", conta.getTitular(),
                     conta.getNumero(), conta.getAgencia(), conta.getSaldo(), conta.getTipo());
             }
+        }
+    }
+
+    private static void testaSegurosDeVida() {
+        msv.criaSeguro(1234, "Pato Donald", 15000);
+        msv.criaSeguro(5468, "Bob Esponja", 1200);
+        msv.criaSeguro(5668, "Sandy Bochechas", 16001);
+
+        System.out.println("\nListagem de Seguros de Vida");
+        System.out.println("===========================");
+        System.out.println("Número Titular                   Valor Tipo");
+        for (SeguroDeVida seguro : msv.getSeguros()) {
+            System.out.printf("%6d %-20S %10.2f %s%n", seguro.getNumeroApolice(),
+                seguro.getTitular(), seguro.getValor(), seguro.getTipo());
         }
     }
 }
