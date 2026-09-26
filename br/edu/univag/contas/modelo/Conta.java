@@ -81,9 +81,12 @@ public abstract class Conta {
      *         se executou a operação.
      */
     public void sacar(double valor) {
+        if (valor <= 0.0) {
+            throw new IllegalArgumentException("O valor a ser sacado deve ser maior ou igual a zero.");
+        }
+
         if (saldo < valor) {
-            System.out.println("Saldo insuficiente.");
-            throw new IllegalArgumentException("Sem saldo disponível para saque.");
+            throw new SaldoInsuficienteException("Saldo insuficiente para saque.");
         }
 
         saldo = saldo - valor;
@@ -91,7 +94,7 @@ public abstract class Conta {
     
     public void depositar(double valor) {
         if (valor <= 0.0) {
-            throw new IllegalArgumentException("O valor a ser sacado deve ser maior ou igual a zero.");
+            throw new IllegalArgumentException("O valor a ser depositado deve ser maior ou igual a zero.");
         }
         saldo += valor;
     }
