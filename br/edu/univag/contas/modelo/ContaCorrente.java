@@ -12,8 +12,8 @@ public class ContaCorrente extends Conta implements Tributavel {
      * @see br.edu.univag.contas.modelo.Conta#sacar(double)
      */
     @Override
-    public boolean sacar(double valor) {
-        return super.sacar(valor + 0.10);
+    public void sacar(double valor) {
+        super.sacar(valor + 0.10);
     }
 
     @Override

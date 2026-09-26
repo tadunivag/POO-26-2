@@ -80,14 +80,13 @@ public abstract class Conta {
      * @return Um valor <code>boolean</code> indicando
      *         se executou a operação.
      */
-    public boolean sacar(double valor) {
+    public void sacar(double valor) {
         if (saldo < valor) {
             System.out.println("Saldo insuficiente.");
-            return false;
+            throw new IllegalArgumentException("Sem saldo disponível para saque.");
         }
 
         saldo = saldo - valor;
-        return true;
     }
     
     public void depositar(double valor) {
@@ -98,9 +97,8 @@ public abstract class Conta {
     }
 
     public void transferir(Conta destino, double valor) {
-        if (sacar(valor)) {
-            destino.depositar(valor);
-        }
+        sacar(valor);
+        destino.depositar(valor);
     }
 
     public double getRendimento( ) {
